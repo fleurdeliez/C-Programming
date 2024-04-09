@@ -5,7 +5,7 @@ int main()
     int n;
 
     printf("Input the number of elements to store in the array: ");
-    scanf("%d", &n);
+    scanf("%d", &n); 
 
     float arr[n];
 
