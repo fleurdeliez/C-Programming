@@ -2,8 +2,7 @@
 
 #include <stdio.h>
 
-int main() {
-
+void printEvenNumbers() {
     int count = 1; // counter
     int num = 2; // first even number
     
@@ -13,7 +12,10 @@ int main() {
         num += 2; // increment by 2 to get the next even number
         count++; // increment the counter
     }
-    
+}
+
+int main() {
+    printEvenNumbers();
     return 0;
 }
 

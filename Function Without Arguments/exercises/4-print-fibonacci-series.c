@@ -1,10 +1,8 @@
-/* Write a program to print the Fibonacci series up to the 10th term without passing any arguments 
-to the function. */
+/* Write a program to print the Fibonacci series up to the 10th term without passing any  arguments to the function.*/
 
 #include <stdio.h>
 
-int main() {
-    
+void printFibonacciSeries() {
     // initialize the first two terms of the Fibonacci series
     int first = 0;
     int second = 1;
@@ -19,6 +17,11 @@ int main() {
         first = second;
         second = next;
     }
+}
+
+int main() {
+    // call the function to print the Fibonacci series
+    printFibonacciSeries();
 
     return 0;
 }

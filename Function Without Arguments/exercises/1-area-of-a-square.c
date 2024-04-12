@@ -1,10 +1,8 @@
-/* Write a program to calculate and print the area of a square without passing any arguments to 
-the  function. */
+/* Write a program to calculate and print the area of a square without passing any arguments to the  function.*/
 
 #include <stdio.h>
 
-int main() {
-    
+double calculateArea() {
     double side; // input
     double area; // output
 
@@ -14,6 +12,12 @@ int main() {
 
     // calculate the area of the square
     area = side * side;
+
+    return area;
+}
+
+int main() {
+    double area = calculateArea();
 
     // output the area of the square
     printf("\nThe area of the square is %.2lf.\n\n", area);
