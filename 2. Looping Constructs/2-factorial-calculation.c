@@ -7,7 +7,7 @@ int main() {
     
     int n; // input
     int count = 1; 
-    int factorial; // output
+    int factorial = 0; // output
 
     printf("Enter a number: ");
     scanf("%d", &n);
