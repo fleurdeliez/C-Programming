@@ -5,20 +5,17 @@ loop to compute the factorial of a user-input integer.*/
 
 int main() {
     
-    int n; // input
-    int count = 1; 
-    int factorial = 0; // output
+    int num; // input
+    int factorial = 1; // output
 
     printf("Enter a number: ");
-    scanf("%d", &n);
+    scanf("%d", &num);
 
-    // calculate and display the factorial of the given number
-    while (count < n) {
-        factorial *= count;
-        count++; 
+    while (num > 1) {
+        factorial *= num;
+        num--;
     }
 
     printf("Factorial: %d", factorial);
-
     return 0;
 }
