@@ -1,27 +1,17 @@
-/*
-    • Write a program that will allow the user to input a double precision floating point value. Print the
-    word NEGATIVE if the number is a negative value and print the word POSITIVE if the number is a
-    positive value. 
-*/
-
-// IF STATEMENT
+// 5.17.24
 
 #include <stdio.h>
 
 int main() {
-    float num; // input: floating point value
+    int num;
 
-    // get the user input
     printf("Input a number: ");
-    scanf("%f", &num); 
-
-    // output the word "NEGATIVE" if the number is a negative value
+    scanf("%d", &num);
+    
     if (num < 0) {
         printf("NEGATIVE");
     }
-
-    // output the word "POSITIVE" if the number is a positive value
-    if (num > 0) {
+    if (num >= 0) {
         printf("POSITIVE");
     }
     return 0;
