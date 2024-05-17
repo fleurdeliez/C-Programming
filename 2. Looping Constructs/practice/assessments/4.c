@@ -7,7 +7,7 @@ int main() {
     do {
         sum += num;
         num += 3;
-    } while (num = 100);
+    } while (num <= 100);
 
     printf("Sum: %d", sum);
 

@@ -8,7 +8,7 @@ int main() {
     int number = 1;
     int sum = 0; // output
 
-    // loop to iterate betwee n numbers 1-100
+    // loop to iterate between numbers 1-100
     do {
         if (number % 3 == 0) { // conditional statement to check if divisible by three
             sum += number;
