@@ -1,4 +1,5 @@
-/* • Write a program in C to copy the elements of one array into another array.
+/* 
+Write a program in C to copy the elements of one array into another array.
 Test Data :
 Input the number of elements to be stored in the array : 3
 Input 3 elements in the array :
@@ -9,7 +10,8 @@ Expected Output :
 The elements stored in the first array are :
 15 10 12
 The elements copied into the second array are :
-15 10 12*/
+15 10 12
+*/
 
 #include <stdio.h>
 
