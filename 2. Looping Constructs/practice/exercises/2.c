@@ -1,11 +1,11 @@
-// Write a C program that will print all the odd numbers from 1 to 100. 
+// 5.18.24
 
 #include <stdio.h>
 
 int main() {
-    int i;
+    int i = 1;
 
-    for (i = 1; i <= 100; i++) {
+    for (int i = 1; i <= 100; i++) {
         if (i % 2 != 0) {
             printf("%d ", i);
         }

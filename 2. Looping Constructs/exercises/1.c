@@ -10,3 +10,28 @@ For example, if start = 5, end = 10 and step = 2, then the output should be:
 7
 9
 */
+
+#include <stdio.h>
+
+int main() {
+    int start, end, step;
+    
+    printf("Enter the start value: ");
+    scanf("%d", &start);
+    
+    printf("Enter the end value: ");
+    scanf("%d", &end);
+    
+    printf("Enter the step value: ");
+    scanf("%d", &step);
+    
+    int current = start;
+    
+    while (current <= end) {
+        printf("%d\n", current);
+        current += step;
+    }
+    
+    return 0;
+}
+
