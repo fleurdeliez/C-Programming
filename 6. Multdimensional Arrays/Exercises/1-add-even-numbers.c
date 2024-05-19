@@ -1,3 +1,7 @@
+/*
+Given the array name Numbers, with the elements 1,2,3,4,5,6,7,8,9,10. Write a program to find
+and display the sum of the even numbers from the given elements of array Numbers.
+*/
 #include <stdio.h>
 
 int main()

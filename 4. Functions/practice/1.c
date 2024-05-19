@@ -1,16 +1,19 @@
-// 5.14.24
+// 5.18.24
+// 5.19.24
 
 #include <stdio.h>
-int add(int, int);
+void total(int, int);
 
 int main() {
-    
-    printf("The total is %d", add(5, 6));
 
+    int n1 = 5, n2 = 6;
+    total(n1, n2);
+    
     return 0;
 }
 
-int add(int i, int j){
-    int sum = i + j;
-    return sum;
+void total(int num1, int num2){
+    int sum;
+    sum = num1 + num2;
+    printf("The total is: %d", sum);
 }
