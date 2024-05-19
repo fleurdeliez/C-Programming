@@ -14,22 +14,22 @@ int main() {
         scanf("%d", &arr[i]);        
     }
 
-    int odd_arr[n], even_arr[n], index = 0;
+    int odd_arr[n], even_arr[n], oddCount = 0, evenCount = 0;
     for (int i = 0; i < n; i++) {
         if (arr[i] %2 == 0) {
-            even_arr[index++] = arr[i];
+            even_arr[evenCount++] = arr[i];
         } else {
-            odd_arr[index++] = arr[i];
+            odd_arr[oddCount++] = arr[i];
         }
     }
 
     printf("\nThe Even elements are:\n");
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < evenCount; i++) {
         printf("%d ", even_arr[i]);
     }
 
     printf("\nThe Odd elements are:\n");
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < oddCount; i++) {
         printf("%d ", odd_arr[i]);
     }
 
