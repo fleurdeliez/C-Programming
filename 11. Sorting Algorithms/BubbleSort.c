@@ -1,15 +1,21 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 void bubbleSort(int arr[], int n){
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < (n-1); j++) {
+    int i = 0;
+    bool swapped = false;
+    do{
+        swapped = false;
+        for (int j = 0; j < (n-1-i); j++) {
             if (arr[j] > arr[j+1]) {
-                int temp = arr[j];
+                int temp = arr[j]; 
                 arr[j] = arr[j+1];
                 arr[j+1] = temp;
+                swapped = true;
             }
         }
-    }
+        i++;
+    } while(swapped);
 }
 
 void printArr(int arr[], int n){
