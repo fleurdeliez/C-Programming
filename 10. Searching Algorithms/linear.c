@@ -1,25 +1,26 @@
+// C code to linearly search x in arr[].
+
 #include <stdio.h>
 
-int linearSearch(int arr[], int n, int target) {
-    for (int i = 0; i < n; i++) {
-        if (arr[i] == target) {
-            return i; // Return the index of the target
-        }
-    }
-    return -1; // Target not found
+int search(int arr[], int N, int x)
+{
+    for (int i = 0; i < N; i++)
+        if (arr[i] == x)
+            return i;
+    return -1;
 }
 
-int main() {
-    int arr[] = {3, 5, 2, 9, 1, 6};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int target = 9;
-    int result = linearSearch(arr, n, target);
+// Driver code
+int main(void)
+{
+    int arr[] = { 2, 3, 4, 10, 40 };
+    int x = 10;
+    int N = sizeof(arr) / sizeof(arr[0]);
 
-    if (result != -1) {
-        printf("Element found at index %d\n", result);
-    } else {
-        printf("Element not found\n");
-    }
-
+    // Function call
+    int result = search(arr, N, x);
+    (result == -1)
+        ? printf("Element is not present in array")
+        : printf("Element is present at index %d", result);
     return 0;
 }

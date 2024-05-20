@@ -1,31 +1,40 @@
+// C program to implement iterative Binary Search
 #include <stdio.h>
 
-int binarySearch(int arr[], int left, int right, int target) {
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
+// An iterative binary search function.
+int binarySearch(int arr[], int low, int high, int x)
+{
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
 
-        if (arr[mid] == target) {
-            return mid; // Return the index of the target
-        } else if (arr[mid] < target) {
-            left = mid + 1; // Search in the right half
-        } else {
-            right = mid - 1; // Search in the left half
-        }
+        // Check if x is present at mid
+        if (arr[mid] == x)
+            return mid;
+
+        // If x greater, ignore left half
+        if (arr[mid] < x)
+            low = mid + 1;
+
+        // If x is smaller, ignore right half
+        else
+            high = mid - 1;
     }
-    return -1; // Target not found
+
+    // If we reach here, then element was not present
+    return -1;
 }
 
-int main() {
-    int arr[] = {1, 2, 3, 5, 6, 9};
+// Driver code
+int main(void)
+{
+    int arr[] = { 2, 3, 4, 10, 40 };
     int n = sizeof(arr) / sizeof(arr[0]);
-    int target = 5;
-    int result = binarySearch(arr, 0, n - 1, target);
-
-    if (result != -1) {
-        printf("Element found at index %d\n", result);
-    } else {
-        printf("Element not found\n");
-    }
-
+    int x = 10;
+    int result = binarySearch(arr, 0, n - 1, x);
+    (result == -1) ? printf("Element is not present"
+                            " in array")
+                   : printf("Element is present at "
+                            "index %d",
+                            result);
     return 0;
 }
