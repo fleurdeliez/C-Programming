@@ -16,8 +16,8 @@ int main()
 	printf("Enter the age of student1: ");
 	scanf("%d", &student1.age);
 	printf("%s is %d years old.\n", student1.fullName, student1.age);
-	
-	//scanf("%c", &a);
+
+    scanf("%c", &a);	
 
 	printf("\nEnter the full name of student2: ");
 	gets(student2.fullName);
