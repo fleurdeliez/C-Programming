@@ -1,84 +1,36 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-int main()
-{
-    struct node {
-        char value[50];
-        struct node *next;		//pointer to structure node
-    }*current, *head, *tail;
+//Structure Template
+struct entry{		
+	int value;		
+	struct entry *next;
+};
 
-    // Initialize pointers
-    current = NULL;
-    head = NULL;
-    tail = NULL;
-
-    // Allocate memory space for the first node
-    current = malloc(sizeof(struct node));
-    strcpy(current->value, "Jayson");
-    current->next = NULL;
-    head = current;
-    tail = current;
-
-    // Allocate memory space for the second node
-    current = malloc(sizeof(struct node));
-    strcpy(current->value, "James");
-    current->next = NULL;
-    tail->next = current;
-    tail = current;
-
-    // Allocate memory space for the third node
-    current = malloc(sizeof(struct node));
-    strcpy(current->value, "Mayor");
-    current->next = NULL;
-    tail->next = current;
-    tail = current;
-
-    // Display the list
-    current = head;
-    while (current != NULL)
-    {
-        printf("%s\n", current->value);
-        current = current->next;
-    }
-    // Search functionality in a loop until the string is found
-    char strtosearch[50];
-    int found;
-    do {
-        found = 0;
-        printf("Type the string to search: ");
-        //scanf("%s", strtosearch);
-		gets(strtosearch);
-		
-        current = head;
-        while (current != NULL)
-        {
-            if (strcmp(current->value, strtosearch) == 0)
-            {
-                found = 1;
-                break;
-            }
-            else
-                current = current->next;
-        }
-
-        if (found == 0)
-            printf("\n%s is not on the list. Try again.\n", strtosearch);
-        else
-            printf("\n%s is on the list!\n", strtosearch);
-
-    } while (found == 0);
-
-    // Free allocated memory
-    current = head;
-    struct node *temp;
-    while (current != NULL)
-    {
-        temp = current;
-        current = current->next;
-        free(temp);
-    }
-
-    return 0;
+int main(){
+	struct entry n1, n2, n3;
+	
+	n1.value = 100;
+	n2.value = 200;
+	n3.value = 300;
+	
+	n1.next = &n2;		//assign address of n2 to n1.next
+	n2.next = &n3;		//assign address of n3 to n2.next
+	n3.next = NULL;
+	
+	int i = n1.next->value;		//assing the value of n2.value to variable i
+	printf("Value of i is %d.", i);
+	
+	printf("\n\nValue of n2.next->value is %d", n2.next->value);
+	
+	n1.next = n2.next;
+	printf("\n%d", n1.next->value);
+	
+	struct entry n2_3;
+	n2_3.value = 400;
+	n2_3.next = n2.next;
+	n2.next = &n2_3;
+	
+	printf("\n%d", n2_3.value);
+	printf("\n%d", n2_3.next->value);
+	printf("\n%d", n2.next->value);
 }

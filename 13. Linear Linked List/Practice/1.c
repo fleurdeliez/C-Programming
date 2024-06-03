@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Structure to represent a student record
+// structure to represent the student record
 struct Student {
     char name[50];
     int score;
     struct Student* next;
 };
 
-// Function to find the student with the highest score
-char* findStudentWithHighestScore(struct Student* head) {
+// function to find the student with the highest score
+char* findHighestScore(struct Student* head) {
     if (head == NULL) {
         return NULL;
     }
@@ -29,37 +29,46 @@ char* findStudentWithHighestScore(struct Student* head) {
 }
 
 int main() {
-    // Create a linked list of student records
+    // sample linked list of student records
     struct Student* head = NULL;
-    struct Student* second = NULL;
-    struct Student* third = NULL;
+    struct Student* current = NULL;
+    int numStudents;
 
-    head = (struct Student*)malloc(sizeof(struct Student));
-    second = (struct Student*)malloc(sizeof(struct Student));
-    third = (struct Student*)malloc(sizeof(struct Student));
+    printf("Enter the number of students: ");
+    scanf("%d", &numStudents);
 
-    strcpy(head->name, "John");
-    head->score = 85;
-    head->next = second;
+    char a;
 
-    strcpy(second->name, "Alice");
-    second->score = 92;
-    second->next = third;
+    for (int i = 0; i < numStudents; i++) {
+        struct Student* newStudent = (struct Student*)malloc(sizeof(struct Student));
+        scanf("%c", &a);
+        printf("\nEnter the name of student %d: ", i + 1);
+        gets(newStudent->name);
+        printf("Enter the score of student %d: ", i + 1);
+        scanf("%d", &newStudent->score);
+        
 
-    strcpy(third->name, "Bob");
-    third->score = 78;
-    third->next = NULL;
+        newStudent->next = NULL;
 
-    // Find the student with the highest score
-    char* highestScoreStudent = findStudentWithHighestScore(head);
+        if (head == NULL) {
+            head = newStudent;
+            current = newStudent;
+        } else {
+            current->next = newStudent;
+            current = newStudent;
+        }
+    }
 
-    // Print the name of the student with the highest score
-    printf("Student with the highest score: %s\n", highestScoreStudent);
+    // find the student with the highest  score
+    char* highestScoreStudent = findHighestScore(head);
 
-    // Free the memory allocated for the linked list
-    free(head);
-    free(second);
-    free(third);
+    // print the name of the student with the highest score
+    if (highestScoreStudent != NULL) {
+        printf("\nStudent with the highest score:\n");
+        puts(highestScoreStudent);
+    } else {
+        printf("\nNo student records found.\n");
+    }
 
     return 0;
 }
