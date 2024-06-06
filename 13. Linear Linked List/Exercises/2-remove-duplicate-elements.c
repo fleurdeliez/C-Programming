@@ -1,25 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Node structure
+// Define the structure for a linked list node
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to create a new node
+// Function to create a new node with given data
 struct Node* createNode(int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    if (newNode == NULL) {
-        printf("Memory allocation failed!");
-        exit(1);
-    }
     newNode->data = data;
     newNode->next = NULL;
     return newNode;
 }
 
-// Function to insert a node at the end of the linked list
+// Function to insert a new node at the end of the linked list
 void insertNode(struct Node** head, int data) {
     struct Node* newNode = createNode(data);
     if (*head == NULL) {
@@ -33,40 +29,42 @@ void insertNode(struct Node** head, int data) {
     }
 }
 
-// Function to remove duplicate elements from the linked list
-void removeDuplicates(struct Node* head) {
-    struct Node* current = head;
-    struct Node* nextNode;
-
-    if (current == NULL) {
-        return;
-    }
-
-    while (current->next != NULL) {
-        if (current->data == current->next->data) {
-            nextNode = current->next->next;
-            free(current->next);
-            current->next = nextNode;
-        } else {
-            current = current->next;
-        }
-    }
-}
-
 // Function to print the linked list
 void printList(struct Node* head) {
     struct Node* temp = head;
     while (temp != NULL) {
-        printf("%d ", temp->data);
+        printf("%d -> ", temp->data);
         temp = temp->next;
     }
-    printf("\n");
+    printf("NULL\n");
+}
+
+// Function to remove duplicates from the linked list
+void removeDuplicates(struct Node* head) {
+    if (head == NULL) return;
+
+    struct Node* current = head;
+    struct Node* prev = NULL;
+    int hashTable[1000] = {0}; // Assuming the elements are within the range 0-999
+
+    while (current != NULL) {
+        // If the element is seen for the first time, mark it in the hash table
+        if (hashTable[current->data] == 0) {
+            hashTable[current->data] = 1;
+            prev = current;
+        } else {
+            // Duplicate element found, remove it
+            prev->next = current->next;
+            free(current);
+        }
+        current = prev->next;
+    }
 }
 
 int main() {
     struct Node* head = NULL;
 
-    // Insert elements into the linked list
+    // Insert some elements into the linked list
     insertNode(&head, 10);
     insertNode(&head, 20);
     insertNode(&head, 30);
@@ -74,13 +72,12 @@ int main() {
     insertNode(&head, 40);
     insertNode(&head, 10);
 
-    printf("Original Linked List: ");
+    printf("Original list:\n");
     printList(head);
 
-    // Remove duplicate elements
     removeDuplicates(head);
 
-    printf("Linked List after removing duplicates: ");
+    printf("List after removing duplicates:\n");
     printList(head);
 
     return 0;
