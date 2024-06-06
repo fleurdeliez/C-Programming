@@ -1,10 +1,10 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
-struct Student{
+struct Student {
     int rollNumber;
-    char name;
+    char name[50];
     int age;
     float gpa;
     struct Student* next;
@@ -12,20 +12,28 @@ struct Student{
 
 struct Student* head = NULL;
 
-void addNewStudent() {
+void addStudent() {
     struct Student* newStudent = (struct Student*)malloc(sizeof(struct Student));
-    char a;
-    printf("\nEnter roll number: ");
-    scanf("%d", &newStudent->next);
-    getchar();
+    
+    printf("Enter Roll Number: ");
+    scanf("%d", &newStudent->rollNumber);
+    
+    while (getchar() != '\n');
+    
     printf("Enter Name: ");
-    gets(newStudent->next);
-    scanf("%c", &a);
-    printf("Enter age: ");
-    scanf("%d", &newStudent->next);   
-    printf("Enter GPA: ");
-    scanf("%f", &newStudent->next);  
+    fgets(newStudent->name, sizeof(newStudent->name), stdin);
 
+    size_t len = strlen(newStudent->name);
+    if (len > 0 && newStudent->name[len - 1] == '\n') {
+        newStudent->name[len - 1] = '\0';
+    }
+    
+    printf("Enter Age: ");
+    scanf("%d", &newStudent->age);
+    
+    printf("Enter GPA: ");
+    scanf("%f", &newStudent->gpa);
+    
     newStudent->next = NULL;
     
     if (head == NULL) {
@@ -38,12 +46,13 @@ void addNewStudent() {
         temp->next = newStudent;
     }
     
-    printf("Student added successfully!\n");  
+    printf("\nStudent added successfully!\n");
 }
 
 void displayStudents() {
+    printf("Enrolled Students:\n");
     if (head == NULL) {
-        printf("No students enrolled.\n");
+        printf("\nNo students enrolled.\n");
     } else {
         struct Student* temp = head;
         while (temp != NULL) {
@@ -61,7 +70,7 @@ void searchStudent() {
     struct Student* temp = head;
     while (temp != NULL) {
         if (temp->rollNumber == rollNumber) {
-            printf("Student Found: Roll Number: %d | Name: %s | Age: %d | GPA: %.2f\n", temp->rollNumber, temp->name, temp->age, temp->gpa);
+            printf("\nStudent Found: \nRoll Number: %d | Name: %s | Age: %d | GPA: %.2f\n", temp->rollNumber, temp->name, temp->age, temp->gpa);
             return;
         }
         temp = temp->next;
@@ -72,17 +81,19 @@ void searchStudent() {
 
 int main() {
     int choice;
-     do {
-        printf("\n1. Add a new student:\n");
-        printf("2. Display enrolled students:\n");
-        printf("3. Search for a student by roll number:\n");
+    printf("\nStudent Enrollment System\n\n");
+    
+    do {
+        printf("1. Add a new student\n");
+        printf("2. Display enrolled students\n");
+        printf("3. Search for a student by roll number\n");
         printf("4. Exit\n");
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
-
+        
         switch (choice) {
             case 1:
-                addNewStudent();
+                addStudent();
                 break;
             case 2:
                 displayStudents();
@@ -90,11 +101,16 @@ int main() {
             case 3:
                 searchStudent();
                 break;
+            case 4:
+                printf("\nThank you for using the Student Enrollment System!\n");
+                break;
             default:
-                printf("Invalid Choice. Try again.");
+                printf("\nInvalid choice. Please try again.\n");
+                break;
         }
-
-     } while (choice != 4);
-
+        
+        printf("\n");
+    } while (choice != 4);
+    
     return 0;
 }
