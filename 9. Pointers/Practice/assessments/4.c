@@ -1,13 +1,5 @@
-/*
-Create a program that demonstrates the use of function pointers. Define multiple 
-functions that  perform different mathematical operations, such as addition, 
-subtraction, multiplication, and  division. Use a function pointer to dynamically 
-select and call one of these functions based on  user input. 
-*/
-
 #include <stdio.h>
 
-// function prototypes
 int add(int a, int b);
 int subtract(int a, int b);
 int multiply(int a, int b);
@@ -15,11 +7,10 @@ int divide(int a, int b);
 
 int main() {
     int a, b, choice, result;
-    int (*operation)(int, int); // function pointer declaration
+    int (*operation)(int, int); 
 
     printf("Enter two numbers: ");
     scanf("%d %d", &a, &b);
-
     printf("Select operation:\n");
     printf("1. Addition\n");
     printf("2. Subtraction\n");
@@ -28,7 +19,6 @@ int main() {
     printf("Enter your choice: ");
     scanf("%d", &choice);
 
-    // assign function pointer based on user choice
     switch (choice) {
         case 1:
             operation = add;
@@ -47,7 +37,6 @@ int main() {
             return 1;
     }
 
-    // call the selected function using function pointer
     result = operation(a, b);
 
     printf("Result: %d\n", result);
@@ -55,7 +44,6 @@ int main() {
     return 0;
 }
 
-// function definitions
 int add(int a, int b) {
     return a + b;
 }

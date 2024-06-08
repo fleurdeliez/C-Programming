@@ -8,29 +8,24 @@ calculate and display the average  value of the elements in the array.
 
 int main() {
     int data[10];
-    int *ptr = data;
     int sum = 0;
-    float average;
+    int *ptr = data;
 
-    // ask the user to enter ten integers and store them in the array
-    printf("Enter ten integers:\n");
+    printf("Input 10 integers:\n");
     for (int i = 0; i < 10; i++) {
+        printf("element - %d: ", i+1);
         scanf("%d", ptr);
         ptr++;
     }
 
-    // calculate the sum of the elements in the array using pointers
     ptr = data;
     for (int i = 0; i < 10; i++) {
-        sum += *ptr;
-        ptr++;
+        sum += *ptr;   
+        ptr++;     
     }
 
-    // calculate the average value of the elements in the array
-    average = (float)sum / 10;
+    float ave = (float)sum / 10;
 
-    // display the average value
-    printf("Average value: %.2f\n", average);
-
+    printf("Average: %.2f", ave);
     return 0;
 }
