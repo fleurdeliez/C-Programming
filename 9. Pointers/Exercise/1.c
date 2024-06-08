@@ -45,9 +45,9 @@ int main() {
 
     printf("\nUsing & operator:\n");
     printf("--------------------------------------------------------\n");
-    printf("address of m = %x\n", &mp);
-    printf("address of fx = %x\n", &fxp);
-    printf("address of cht = %x\n", &chtp);
+    printf("address of m = %x\n", &m);
+    printf("address of fx = %x\n", &fx);
+    printf("address of cht = %x\n", &cht);
 
     printf("\nUsing & and * operator:\n");
     printf("--------------------------------------------------------\n");
