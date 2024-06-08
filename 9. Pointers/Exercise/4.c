@@ -1,5 +1,6 @@
 /*
-4. Write a program in C to store n elements in an array and print the elements using pointer.
+4. Write a program in C to store n elements in an array and print the elements using 
+pointer.
 Test Data:
 Input the number of elements to store in the array :5
 Input 5 number of elements in the array:
