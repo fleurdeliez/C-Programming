@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 int main() {
-
     int m = 300, *mp = &m;
     float fx = 300.600006, *fxp = &fx;
     char cht = 'z', *chtp = &cht;
@@ -12,7 +11,7 @@ int main() {
     printf("fx = %f\n", fx);
     printf("cht = %c\n", cht);
 
-    printf("\nUsing & operator\n");
+    printf("\nUsing & operator:\n");
     printf("--------------------------------------------------------\n");
     printf("address of m = %p\n", &m);
     printf("address of fx = %p\n", &fx);
@@ -30,7 +29,7 @@ int main() {
     printf("address of fx = %p\n", fxp);
     printf("address of cht = %p\n", chtp);
 
-    printf("\nUsing only pointer pointer operator:\n");
+    printf("\nUsing only pointer operator:\n");
     printf("--------------------------------------------------------\n");
     printf("value at address of m = %d\n", *mp);
     printf("value at address of fx = %f\n", *fxp);

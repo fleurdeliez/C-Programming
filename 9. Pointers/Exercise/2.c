@@ -19,9 +19,9 @@ int main() {
 
     printf("Input the first number: ");
     scanf("%d", &n1);
-    printf("Input the first number: ");
+    printf("Input the second number: ");
     scanf("%d", &n2);
-    printf("Input the first number: ");
+    printf("Input the third number: ");
     scanf("%d", &n3);
 
     sum = *n1p + *n2p + *n3p;

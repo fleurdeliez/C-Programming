@@ -56,5 +56,4 @@ void separate (double num,			//input - value to be split
 	*wholep = floor(magnitude);
 	*fracp = magnitude - *wholep;
 	
-	
 }
