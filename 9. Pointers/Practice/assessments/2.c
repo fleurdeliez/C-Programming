@@ -1,18 +1,25 @@
 #include <stdio.h>
-void multiplyByTwo(int *arr, int size);
+
+void multiplyByTwo(int*, int);
 
 int main() {
-    int arr[5] = {1,2,3,4,5,};
-    multiplyByTwo(arr, sizeof(arr)/sizeof(arr[0]));
-    
-    for (int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++) {
-        printf("%d ", arr[i]);
+    int arr[5] = {1,2,3,4,5};
+    int *ptr = arr;
+
+    multiplyByTwo(ptr, sizeof(arr)/sizeof(arr[0]));
+
+    printf("Modified Value:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("element - %d: %d\n", i, *ptr);
+        ptr++;
     }
+
     return 0;
 }
 
-void multiplyByTwo(int *arr, int size){
+void multiplyByTwo(int* p, int size){
     for (int i = 0; i < size; i++) {
-        arr[i] *= 2;
+        *p *=2;
+        p++;
     }
 }
