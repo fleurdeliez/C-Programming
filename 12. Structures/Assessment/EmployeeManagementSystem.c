@@ -14,7 +14,8 @@ void addEmployee(Employee employees[], int *count) {
         printf("\nEnter employee ID: ");
         scanf("%d", &employees[*count].id);
         printf("Enter employee name: ");
-        scanf(" %[^\n]", employees[*count].name);
+        getchar(); 
+        fgets(employees[*count].name, sizeof(employees[*count].name), stdin);
         printf("Enter employee salary: ");
         scanf("%f", &employees[*count].salary);
         (*count)++;

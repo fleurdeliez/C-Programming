@@ -2,78 +2,74 @@
 #include <string.h>
 #define MAX 5
 
-struct record {
+typedef struct{
     int id;
     char name[50];
     double salary;
-}employee[MAX];
+} record;
 
 void addEmployee();
-void displayDetails();
+void displayEmployees();
 void calculateAveSalary();
 
 int main() {
-    printf("\nEmployee Management System:\n");
-    int choice;
-    do {
+    record employee[MAX];
+    int choice, count = 0;
+
+    printf("Employee Management System:\n");
+
+    while (1) {
         printf("\nMenu:\n\n");
         printf("1. Add an employee\n");
         printf("2. Display employee details\n");
         printf("3. Calculate average salary\n");
-        printf("4. Exit\n\n");
-        printf("Enter your choice: ");
+        printf("4.Exit\n");
+        printf("\nEnter your choice: ");
         scanf("%d", &choice);
-
+        
         switch (choice) {
             case 1:
-                addEmployee();
+                addEmployee(employee, &count);
                 break;
             case 2:
-                displayDetails();
-                break;
-            case 3:
-                calculateAveSalary();
+                displayEmployees(employee, count);
                 break;
             case 4:
                 printf("\nExiting the program...");
+                return 0;
                 break;
             default:
-                printf("\nInvalid Choice. Try again.");
+                printf("\nInvalid choice. Try again.\n");
         }
-        
-    } while (choice != 4);
+    };
 
     return 0;
 }
 
-void addEmployee(){
-    int i = 0;
-    char a;
-    if (i < MAX) {
-    printf("\nEnter employee ID: ");
-    scanf("%d", &employee[i].id);
-    printf("Enter employee name: ");
-    scanf("%c", &a);
-    gets(employee[i].name);
-    printf("Enter employee salary: ");
-    scanf("%lf", &employee[i].salary);
-    printf("\n\nEmployee added successfully!\n");  
-    i++;
+void addEmployee(record employee[], int* count){
+    if (*count < MAX) {
+        printf("\nEnter employee id: ");
+        scanf("%d", &employee[*count].id);
+        printf("Enter employee name: ");
+        getchar();
+        fgets(employee[*count].name, sizeof(employee[*count]), stdin);
+        printf("Enter employee salary: ");
+        scanf("%lf", &employee[*count].salary);
+        (*count)++;
     } else {
-        printf("\n\nEmployee limit reached.");
+        printf("\nEmployee limit reached.");
     }
 }
 
-void displayDetails(){
-    for (int i = 0; i < MAX; i++) {
-        printf("\nEmployee Details:\n");
-        printf("\nID: %d", employee[i].id);
-        printf("\nName: ");
-        puts(employee[i].name);
-        printf("\nSalary: %.2lf", employee[i].id);
+void displayEmployees(record employee[], int count){
+    if (count != 0) {
+        printf("\nEmployee Details:\n\n");
+        for (int i = 0; i < count; i++) {
+            printf("ID: %d\n", employee[i].id);
+            printf("Name: %s", employee[i].name);
+            printf("Salary: %.2lf\n", employee[i].salary);
+        }
+    } else {
+        printf("\nNo employees to display.\n");
     }
-}
-
-void calculateAveSalary(){
-
 }
