@@ -7,8 +7,7 @@ struct record{			//global template/definition of structure record
 
 void function(struct record);	//function prototype/function declaration
 
-int main()
-{
+int main(){
 printf("Enter student age: ");
 scanf("%d", &agrec.age);
 function(agrec);						//function call passing structure argrec - Actual Parameter
