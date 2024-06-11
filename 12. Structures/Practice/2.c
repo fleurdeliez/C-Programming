@@ -18,10 +18,10 @@ int main() {
     database student[MAX];
     int choice, count = 0;
 
-    printf("\nStudent Database Management System:\n");
+    printf("\nStudent Database Management System:");
 
     while (1) {
-        printf("\nMenu:\n");
+        printf("\n\nMenu:\n");
         printf("1. Add a student\n");
         printf("2. Search for a student\n");
         printf("3. Display all students\n");
@@ -64,17 +64,38 @@ void addStudent(database student[], int *count){
         printf("\nEnter marks for 5 subjects:\n");
         for (int i = 0; i < 5; i++) {
             printf("Subject %d: ", i+1);
-            scanf("%d", &student->mark[i]);
+            scanf("%d", &student[*count].mark[i]);
         }
-        printf("\n\nStudent added successfully", );
-        *count++;
+        printf("\nStudent added successfully!");
+        (*count)++;
     } else {
         printf("\nStudent limit reached.\n");
     }
 }
-void searchStudent(database student, int count){
-    printf("\nNo students added in the database.\n");
+void searchStudent(database student[], int count){
+    int id, found = 0;
+    printf("\nEnter student ID to search: ");
+    scanf("%d", &id);
+    if (count != 0) {
+        for (int i = 0; i < count; i++) {
+            if (student[i].id == id) {
+                printf("\n\nStudent Details:\n");
+                printf("ID: %d\nName: %sAge: %d\nGrade: %s\nMarks: ", student[i].id, student[i].name, student[i].age, student[i].grade);
+                for (int j = 0; j < 5; j++) {
+                    printf("%d ", student[i].mark[j]);
+                } 
+                found = 1;
+                break;
+            }
+            if(!found){
+                printf("\nstudent not found.\n");
+            }
+        }
+    } else {
+        printf("\nNo students added in the database to search.\n");
+    }
 }
+
 void displayStudents(database student, int count){
 
 }
