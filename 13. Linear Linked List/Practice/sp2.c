@@ -15,21 +15,21 @@ int main()
     tail = NULL;
 
     // Allocate memory space for the first node
-    current = malloc(sizeof(struct node));
+    current = malloc(sizeof(struct node)); // 1000
     strcpy(current->value, "Jayson");
     current->next = NULL;
     head = current;
     tail = current;
 
     // Allocate memory space for the second node
-    current = malloc(sizeof(struct node));
+    current = malloc(sizeof(struct node)); // 2000
     strcpy(current->value, "James");
     current->next = NULL;
     tail->next = current;
     tail = current;
 
     // Allocate memory space for the third node
-    current = malloc(sizeof(struct node));
+    current = malloc(sizeof(struct node)); // 3000
     strcpy(current->value, "Mayor");
     current->next = NULL;
     tail->next = current;

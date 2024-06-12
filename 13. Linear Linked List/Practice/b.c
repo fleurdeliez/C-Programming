@@ -15,7 +15,7 @@ int main() {
     tail = NULL;
 
     current = malloc(sizeof(struct Node));
-    strcpy(current->value, "Jayson");
+    (current->value, "Jayson");
     current->next = NULL;
     head = current;
     tail = current;
