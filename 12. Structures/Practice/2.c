@@ -2,13 +2,13 @@
 #include <string.h>
 #define MAX 10
 
-typedef struct {
+typedef struct{
     int id;
     char name[50];
     int age;
     char grade[5];
     int mark[5];
-} database;
+}database;
 
 void addStudent();
 void searchStudent();
@@ -66,7 +66,7 @@ void addStudent(database student[], int *count){
             printf("Subject %d: ", i+1);
             scanf("%d", &student[*count].mark[i]);
         }
-        printf("\nStudent added successfully!");
+        printf("\nStudent added successfully!\n");
         (*count)++;
     } else {
         printf("\nStudent limit reached.\n");
@@ -80,7 +80,7 @@ void searchStudent(database student[], int count){
         for (int i = 0; i < count; i++) {
             if (student[i].id == id) {
                 printf("\n\nStudent Details:\n");
-                printf("ID: %d\nName: %sAge: %d\nGrade: %s\nMarks: ", student[i].id, student[i].name, student[i].age, student[i].grade);
+                printf("ID: %d\nName: %sAge: %d\nGrade: %s\nMarks: \n", student[i].id, student[i].name, student[i].age, student[i].grade);
                 for (int j = 0; j < 5; j++) {
                     printf("%d ", student[i].mark[j]);
                 } 
