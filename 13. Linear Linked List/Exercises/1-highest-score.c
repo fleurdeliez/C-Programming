@@ -1,3 +1,44 @@
+/*
+    You have a linked list of student records, where each record contains the 
+    student's name (a string)  and their score (an integer). Write a C program 
+    to find the student with the highest score in the  linked list and print their name. 
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
