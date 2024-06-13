@@ -4,41 +4,6 @@
     to find the student with the highest score in the  linked list and print their name. 
  */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
