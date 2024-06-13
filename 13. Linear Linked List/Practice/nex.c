@@ -12,7 +12,8 @@ int main() {
     head = malloc(sizeof(struct node));     // memory allocation to struct pointer
     head->value = 45;    // initialize value
     head->link = NULL;  // update link to null to indicate that this is the last node
-    
+    head = tail;
+
 
     return 0;
 }
