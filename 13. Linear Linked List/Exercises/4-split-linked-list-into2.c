@@ -15,7 +15,7 @@ void insert(struct Node** head, int data) {
     *head = newNode;
 }
 
-// Function to split the linked list into two separate lists
+// Function to split the linked list into two separate listss
 void splitLinkedList(struct Node* head, struct Node** oddList, struct Node** evenList) {
     struct Node* current = head;
     while (current != NULL) {
