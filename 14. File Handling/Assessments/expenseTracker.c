@@ -22,7 +22,7 @@ int main() {
         perror("Error opening file");
         return 1;
     }
-    fprintf(fpointer, "Date\t\tDescription\tAmount\n");
+    fprintf(fpointer, "\nDate\t\tDescription\tAmount\n");
     fprintf(fpointer, "------------------------------------------------------------\n");
     fclose(fpointer);
 
