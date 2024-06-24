@@ -16,6 +16,7 @@ void addExpense();
 void viewExpenses();
 void deleteExpenses();
 
+
 int main() {
     fpointer = fopen("expenses.txt", "a");
     if (fpointer == NULL) {
