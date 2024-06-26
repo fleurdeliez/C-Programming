@@ -1,0 +1,3 @@
+fscanf() gets a word or a string before a whitespace
+fgets() gets a string
+fgets() gets a string with no possible buffer overflow
